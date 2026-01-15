@@ -20,7 +20,7 @@ export default function Navbar() {
 
           </div>
         </div>
-        
+        <h1>hii</h1>
       </div>
     </>
   );
