@@ -24,7 +24,6 @@ function App() {
           <Route path="/mensWear" element={<Mens/>}></Route>
           <Route path="/kidsWear" element={<Kids/>}></Route>
           <Route path="/womensWear" element={<Womens />}></Route>
-
           {/* <Route path='/product' to ></Route>  sir se puchna*/}
           <Route path="/LoginPage" element={<Login/>}></Route>
           <Route path="/RegisterPage" element={<Register/>}></Route>
