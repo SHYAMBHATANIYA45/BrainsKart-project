@@ -19,7 +19,7 @@ export default function Login() {
     })
 
 
-    let navigate = useNavigate()
+ 
 
     let handleMail = (event) => {
         setuserData(() => ({
@@ -38,8 +38,7 @@ export default function Login() {
 
 
             setemailfeedback("ok verified")
-            setCheckValidation(prev => ({ ...prev, checkmail: true }));
-
+            
 
         } else {
             setemailfeedback("something looks invalid")
@@ -52,7 +51,7 @@ export default function Login() {
         if (passRegExp.test(password)) {
 
             setpassFeedback("password created successfully")
-            setCheckValidation(prev => ({ ...prev, checkPass: true }));
+           
         }
 
         else {
@@ -65,12 +64,7 @@ export default function Login() {
             emailValidate(userData.form.email)
         passwordFeedback(userData.form.password)
 
-        setTimeout(() => {
-            if (checkValidation.checkPass && checkValidation.checkmail) {
-                alert("login successful")
-                navigate('/RegisterPage')
-            }
-        },1000)
+      
     }
     return (
         <>
@@ -91,10 +85,10 @@ export default function Login() {
                     <div className="col-9 mt-2">
                         <div className="form mx-5">
                             <div className="card w-75  m-5 card-login">
-                                <div className="card-header bg-dark ">
-                                    <h3 className="text-light">Login</h3>
+                                <div className="card-header login-header bg-dark ">
+                                    <h3 className="text-header">Login</h3>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body login-body">
                                     <form id="Registration-form " onSubmit={handleSubmit}>
                                         <div className="form-group mt-2">
                                             <input
@@ -124,11 +118,11 @@ export default function Login() {
                                         </div>
 
                                         <div className="form-group mt-4">
-                                            <input type="submit" id="button" className="btn btn-md text-light" value="Login" />
+                                            <input type="submit" id="button" className="btn btn-mdtext-light" value="Login" />
                                         </div>
                                     </form>
                                 </div>
-                                <div className="card-footer text-center bg-dark">
+                                <div className="card-footer login-footer text-center bg-dark">
                                     <Link to="/">
                                         <img src="./src/assets/logocopy.png" className="m-2"></img>
                                     </Link>

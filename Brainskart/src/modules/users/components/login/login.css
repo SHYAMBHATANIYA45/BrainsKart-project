@@ -1,14 +1,22 @@
 #button {
   background-image: linear-gradient(90deg,rgb(10,13,12), rgb(43, 74, 67));
+  
 }
-.card-header{
+input[type="submit"][value="Login"]{
+color: rgb(227, 203, 138);
+}
+
+.login-header{
    background-image: linear-gradient(90deg,rgb(10,13,12), rgb(43, 74, 67));
 }
 
-.card-footer{
+.text-header{
+    color: rgb(227, 203, 138) ;
+}
+.login-footer{
       background-image: linear-gradient(90deg,rgb(10,13,12), rgb(43, 74, 67));
 }
-.card-body{
+.login-body{
     background-color: rgb(227, 203, 138);
 }
 .loginNav{
