@@ -9,7 +9,7 @@ import Navbar from "./modules/layout/components/navbar/Navbar";
 import Mens from "./modules/product/components/mens-collection/Mens";
 import Kids from "./modules/product/components/kids-collection/Kids";
 import Womens from "./modules/product/components/womens-collection/Womens";
-import Login from "./modules/users/components/login/Login";
+import Login from "./modules/users/components/login/Login.jsx";
 import Register from "./modules/users/components/register/Register";
 function App() {
   const [count, setCount] = useState(0);
