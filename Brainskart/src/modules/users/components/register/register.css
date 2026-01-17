@@ -1,0 +1,24 @@
+.registerNav {
+  height: 60px;
+  background-color: rgb(227, 203, 138);
+}
+
+input[type="submit"][value="Register"] {
+  background-image: linear-gradient(90deg, rgb(10, 13, 12), rgb(43, 74, 67));
+  color: rgb(183, 159, 128);
+  background-image: linear-gradient(90deg, rgb(10, 13, 12), rgb(43, 74, 67));
+}
+
+.register-body {
+  background-color: rgb(227, 203, 138);
+}
+
+.register-header {
+  height: 70px;
+  color: rgb(183, 159, 128);
+  background-image: linear-gradient(90deg, rgb(10, 13, 12), rgb(43, 74, 67));
+}
+
+.register-footer {
+  background-image: linear-gradient(90deg, rgb(10, 13, 12), rgb(43, 74, 67));
+}
