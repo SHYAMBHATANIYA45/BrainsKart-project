@@ -1,0 +1,16 @@
+.mens-button{
+     background-color: rgb(227, 203, 138);
+     text-decoration: none;
+     color: rgb(51, 50, 50);
+     border-radius: 5px;
+     width: 115px;
+     height: 35px;
+     border-color: bisque;
+}
+.mens-button:hover{
+    background-color:rgb(329, 205, 140);
+}
+.mens-navbar{
+     background-color: rgb(227, 203, 138);
+    height: 60px;
+}

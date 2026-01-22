@@ -1,0 +1,14 @@
+.User-navbar{
+ background-color: rgb(227, 203, 138);
+     height: 60px;
+}
+#user{
+    text-decoration: none;
+    border:none;
+     width: 400px;
+      background-color: rgb(227, 203, 138);
+}
+.profile-header{
+    background-image: linear-gradient(90deg,rgb(10,13,12), rgb(43, 74, 67));
+    color: rgb(227, 203, 138);
+}

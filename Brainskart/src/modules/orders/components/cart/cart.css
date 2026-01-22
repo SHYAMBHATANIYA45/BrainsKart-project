@@ -1,0 +1,27 @@
+.CheckOut-list{
+     background-color: rgb(227, 203, 138);
+     height: 60px;
+    
+}
+.cart-Items{
+    background-image:linear-gradient(90deg,rgb(10,13,12), rgb(43, 74, 67));
+        color:rgb(227, 203, 138);
+}
+
+.cart-table{
+     background-color: rgb(227, 203, 138);
+}
+.cart-delete{
+    background: #961c1c;
+    border: white;
+    color: rgb(203, 192, 191);
+    width: 90px;
+    height: 30px;
+}
+.cart-delete:hover{
+    color: aliceblue;
+    background-color: #570202;
+}
+.table-header{
+   
+}

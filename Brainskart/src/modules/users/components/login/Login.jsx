@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { Link, useNavigate } from "react-router";
 import "./login.css";
+import Navbar from "../../../layout/components/navbar/Navbar";
+// import { UserContext } from "../../../Usercontext";
 
 // import LoginNav from "./loginNav";
 
-export default function Login() {
+export default function Login(props) {
     const [userData, setuserData] = useState({
         form: {
             email: "",
@@ -18,8 +20,13 @@ export default function Login() {
         checkPass: false,
     })
 
+    const [shyam, setshyam] = useState(0)
 
- 
+    let navigate = useNavigate()
+    
+
+
+
 
     let handleMail = (event) => {
         setuserData(() => ({
@@ -38,7 +45,11 @@ export default function Login() {
 
 
             setemailfeedback("ok verified")
-            
+            setCheckValidation(prev => ({
+                ...prev,
+                checkmail: true
+
+            }))
 
         } else {
             setemailfeedback("something looks invalid")
@@ -51,7 +62,12 @@ export default function Login() {
         if (passRegExp.test(password)) {
 
             setpassFeedback("password created successfully")
-           
+            setCheckValidation(prev => ({
+                ...prev,
+                checkPass: true
+
+            }))
+
         }
 
         else {
@@ -63,14 +79,31 @@ export default function Login() {
         event.preventDefault(),
             emailValidate(userData.form.email)
         passwordFeedback(userData.form.password)
-
-      
     }
+
+    let checkLogging = () => {
+
+        if (checkValidation.checkmail && checkValidation.checkPass) {
+            setshyam((prev) => 1
+            )
+            navigate("/")
+            alert("Loggin successfull")
+            props.send(1)  
+        }
+
+    }
+
+           
+    //  console.log(shyam)     
+
     return (
         <>
 
 
-            <div className="loginNav">
+
+
+
+     <div className="loginNav">
                 <h3> <i className="fa-solid fa-right-to-bracket icon mt-3 ms-3"></i>Login</h3>
             </div>
 
@@ -118,13 +151,13 @@ export default function Login() {
                                         </div>
 
                                         <div className="form-group mt-4">
-                                            <input type="submit" id="button" className="btn btn-mdtext-light" value="Login" />
+                                            <Link to={"/"}></Link> <input type="submit" id="button" className="btn btn-mdtext-light" value="Login" onClick={checkLogging} />
                                         </div>
                                     </form>
                                 </div>
                                 <div className="card-footer login-footer text-center bg-dark">
                                     <Link to="/">
-                                        <img src="./src/assets/logocopy.png" className="m-2"></img>
+                                        <img src="./src/assets/logocopy.png" className="m-2 login-img"></img>
                                     </Link>
                                 </div>
                             </div>
@@ -132,6 +165,11 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+           
+
+
+           
         </>
+        
     );
 }

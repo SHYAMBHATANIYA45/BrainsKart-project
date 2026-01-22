@@ -18,11 +18,11 @@ export default function Register() {
   const [userPassFeedback, setuserPassFeedback] = useState("")
   const [confirmPasswordFeedback, setconfirmPasswordFeedback] = useState("")
 
-  const[checkValidation,setCheckValidation]=useState({
-    checkuser:false,
-    checkemail:false,
-    checkpass:false,
-    checkconfirmPass:false
+  const [checkValidation, setCheckValidation] = useState({
+    checkuser: false,
+    checkemail: false,
+    checkpass: false,
+    checkconfirmPass: false
 
   })
 
@@ -42,10 +42,11 @@ export default function Register() {
     if (regExp.test(userName)) {
       setuserNameFeedback("okay"),
 
-      setCheckValidation((prev)=>({
-        ...prev,
-        checkuser : true})
-      )
+        setCheckValidation((prev) => ({
+          ...prev,
+          checkuser: true
+        })
+        )
     }
     else {
       setuserNameFeedback("username required");
@@ -57,12 +58,12 @@ export default function Register() {
     let regExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (regExp.test(email)) {
       setuserEmailfeedback("okay"),
-       setCheckValidation((prev)=>({
-         ...prev,
-         checkemail: true
-       })
-      
-      )
+        setCheckValidation((prev) => ({
+          ...prev,
+          checkemail: true
+        })
+
+        )
     } else {
       setuserEmailfeedback("email required")
     }
@@ -73,10 +74,10 @@ export default function Register() {
     if (regExp.test(pass)) {
       setuserPassFeedback("password looks strong"),
 
-      setCheckValidation((prev)=>({
-         ...prev,
-         checkpass: true
-       }))
+        setCheckValidation((prev) => ({
+          ...prev,
+          checkpass: true
+        }))
     } else {
       setuserPassFeedback("strong password of 8 charater required")
     }
@@ -88,12 +89,12 @@ export default function Register() {
 
     if (user.password === password && password) {
       setconfirmPasswordFeedback("oaky"),
-       setCheckValidation(
-        (prev)=>({
-          ...prev,
-          checkconfirmPass:true
-        })
-      )
+        setCheckValidation(
+          (prev) => ({
+            ...prev,
+            checkconfirmPass: true
+          })
+        )
     }
     else {
       setconfirmPasswordFeedback("password Unmatched")
@@ -103,21 +104,21 @@ export default function Register() {
 
   let handleSubmit = (event) => {
     event.preventDefault(),
-     
-    checkUserName(user.username,checkValidation.checkuser)
+
+      checkUserName(user.username, checkValidation.checkuser)
     checkEmail(user.email)
     checkPass(user.password)
     confirmPass(user.confirmPassword)
   }
 
-  let checkAllvalidation=()=>{
-      setTimeout(() => {
-            if (checkValidation.checkuser && checkValidation.checkpass && checkValidation.checkemail && checkValidation.checkconfirmPass ) {
-                alert("login successful")
-                navigate('/LoginPage')
-            }
-        },1000)
+  let checkAllvalidation = () => {
+    setTimeout(() => {
+      if (checkValidation.checkuser && checkValidation.checkpass && checkValidation.checkemail && checkValidation.checkconfirmPass) {
+        alert("Registered successful")
+        navigate('/LoginPage')
       }
+    }, 1000)
+  }
 
 
   return (
@@ -144,7 +145,7 @@ export default function Register() {
 
                     <div className='form-group mt-3'>
                       <input
-                        className={`form-control ${userNameFeedback==="okay"?"border-success":"border-danger"}`}
+                        className={`form-control ${userNameFeedback === "okay" ? "border-success" : "border-danger"}`}
                         placeholder='Enter username'
                         type='text'
                         name='username'
@@ -154,11 +155,11 @@ export default function Register() {
                       >
                       </input>
                     </div>
-                    <div className={`userNameFeedback  ${userNameFeedback === "okay"?"text-success":"text-danger"}`}>{userNameFeedback}</div>
+                    <div className={`userNameFeedback  ${userNameFeedback === "okay" ? "text-success" : "text-danger"}`}>{userNameFeedback}</div>
 
                     <div className='form-group mt-3'>
                       <input
-                        className={`form-control ${userEmailFeedback==="okay"?"border-success":"border-danger"}`}
+                        className={`form-control ${userEmailFeedback === "okay" ? "border-success" : "border-danger"}`}
                         type='email'
                         name='email'
                         placeholder="Enter Email"
@@ -168,12 +169,12 @@ export default function Register() {
 
                       ></input>
                     </div>
-                    <div className={`mailFeedback   ${userEmailFeedback === "okay"?"text-success":"text-danger"}`}>{userEmailFeedback}</div>
+                    <div className={`mailFeedback   ${userEmailFeedback === "okay" ? "text-success" : "text-danger"}`}>{userEmailFeedback}</div>
 
 
                     <div className='form-group mt-3'>
                       <input
-                        className={`form-control ${userPassFeedback==="password looks strong"?"border-success":"border-danger"}`}
+                        className={`form-control ${userPassFeedback === "password looks strong" ? "border-success" : "border-danger"}`}
                         name='password'
                         type='password'
                         placeholder='Enter Password'
@@ -183,12 +184,12 @@ export default function Register() {
                       ></input>
 
                     </div>
-                    <div className={`passwordFeedback ${userPassFeedback === "password looks strong"?"text-success":"text-danger"}`}>{userPassFeedback}</div>
+                    <div className={`passwordFeedback ${userPassFeedback === "password looks strong" ? "text-success" : "text-danger"}`}>{userPassFeedback}</div>
 
 
                     <div className='form-group mt-3'>
                       <input
-                        className={`form-control confirmPassFeedback ${confirmPasswordFeedback === "oaky"?"border-success":"border-danger"}`}
+                        className={`form-control confirmPassFeedback ${confirmPasswordFeedback === "oaky" ? "border-success" : "border-danger"}`}
                         type='password'
                         name='confirmPassword'
                         placeholder='confirm Password'
@@ -198,7 +199,7 @@ export default function Register() {
                       ></input>
 
                     </div>
-                    <div className={`confirmPassFeedback  ms-1 ${confirmPasswordFeedback === "oaky"?"text-success":"text-danger"}`}>{confirmPasswordFeedback}</div>
+                    <div className={`confirmPassFeedback  ms-1 ${confirmPasswordFeedback === "oaky" ? "text-success" : "text-danger"}`}>{confirmPasswordFeedback}</div>
 
                     <div className='form-group mt-3'>
                       <input type='submit' value="Register" className='btn btn-md ms-1 mt-1' onClick={checkAllvalidation}></input>
@@ -211,7 +212,7 @@ export default function Register() {
                 </div>
                 <div className='card-footer register-footer bg-dark text-center'>
                   <Link to="/">
-                    <img src="./src/assets/logocopy.png" className="m-2"></img>
+                    <img src="./src/assets/logocopy.png" className="m-2 register-img"></img>
                   </Link>
                 </div>
               </div>
