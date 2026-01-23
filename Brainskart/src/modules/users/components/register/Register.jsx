@@ -201,21 +201,23 @@ export default function Register() {
                     </div>
                     <div className={`confirmPassFeedback  ms-1 ${confirmPasswordFeedback === "oaky" ? "text-success" : "text-danger"}`}>{confirmPasswordFeedback}</div>
 
-                    <div className='form-group mt-3'>
-                      <input type='submit' value="Register" className='btn btn-md ms-1 mt-1' onClick={checkAllvalidation}></input>
-                    </div>
+                         <div className='form-group mt-4 mb-3 text-center'>
+                    
+                        <input type='submit' value="Register" className='btn btn-md' onClick={checkAllvalidation}></input>
+                        </div>
+                        <Link to={"/LoginPage"} className="text-decoration-none text-dark "> <p className="text-dark fs-6 fw-semibold text-center">If already singup Click to <span className='text-primary'>Login Account </span></p></Link></div>
+                      
+                  
+                   
 
 
                   </div>
-
-
+                  <div className='card-footer register-footer bg-dark text-center'>
+                    <Link to="/">
+                      <img src="./src/assets/logocopy.png" className="m-2 register-img"></img>
+                    </Link>
+                  </div>
                 </div>
-                <div className='card-footer register-footer bg-dark text-center'>
-                  <Link to="/">
-                    <img src="./src/assets/logocopy.png" className="m-2 register-img"></img>
-                  </Link>
-                </div>
-              </div>
             </form>
           </div>
 

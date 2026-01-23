@@ -21,13 +21,19 @@ export default function Profile() {
                                 <table className='table border cart-table'>
                                     <tbody>
                                         <tr><td id='billing'>
-                                            Total : 678
+                                            <label htmlFor="user"/>Name:
+                                            <input type='text' id='user' placeholder='' className=' m-2 user-input w-50'></input>
+                                     
                                         </td></tr>
                                         <tr><td id='billing'>
-                                            Tax : 678
+                                            <label htmlFor="user">Email
+                                            <input type='text' id='user' placeholder='' className=' m-2 user-input'></input>
+                                        </label>
                                         </td></tr>
                                         <tr><td id='billing'>
-                                            Grand Total : 678
+                                             <label htmlFor="user">Mobile:
+                                            <input type='text' id='user' placeholder='' className=' m-2 user-input'></input>
+                                        </label>
                                         </td></tr>
 
 

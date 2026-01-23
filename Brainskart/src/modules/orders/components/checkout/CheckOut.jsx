@@ -1,11 +1,17 @@
 import React, { use } from 'react'
 import "./checkout.css"
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 export default function CheckOut() {
-    let navigate = useNavigate()
-    let handlePayment =()=>{
-       navigate("/CreditCard_details")
-    }
+  let navigate = useNavigate()
+    const { state } = useLocation();
+
+    const qty = state?.quantity || 0; // match the key 'quantity' used in navigate
+    const price = state?.price || 0
+
+    let handlePayment = () => {
+        navigate("/CreditCard_details")
+    
+}
     return (
         <>
 
@@ -54,7 +60,7 @@ export default function CheckOut() {
 
 
 
-
+                     
                         <div className="card mt-2">
                             <div className="card-header cart-Items">
                                 <h3 className=''>  Payment Mode</h3>
@@ -80,8 +86,6 @@ export default function CheckOut() {
                             </div>
                             <div className="card-body">
                                 <table className='table border cart-table'>
-
-
                                     <tbody>
                                         <tr>
                                             <td>
@@ -89,8 +93,8 @@ export default function CheckOut() {
                                             </td>
                                             <td>
                                                 <p className='fs-6'> Mens fit shirt</p>
-                                                <p className='fs-6'>ruppe</p>
-                                                <p className='fs-6'> Qty : 2</p>
+                                                <p className='fs-6'>&#x20B9;{state?.price}</p>
+                                                <p className='fs-6'>Qty: {state?.quantity}</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -99,8 +103,8 @@ export default function CheckOut() {
                                             </td>
                                             <td>
                                                 <p className='fs-6'> Mens fit shirt</p>
-                                                <p className='fs-6'>ruppe</p>
-                                                <p className='fs-6'> Qty : 2</p>
+                                                <p className='fs-6'>&#x20B9;{state?.price}</p>
+                                                <p className='fs-6'>Qty: {state?.quantity}</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -110,19 +114,17 @@ export default function CheckOut() {
                                 <table className='table border cart-table'>
                                     <tbody>
                                         <tr><td id='billing'>
-                                            Total : 678
+                                            Total :&#x20B9; {state?.quantity*state?.price}
                                         </td></tr>
                                         <tr><td id='billing'>
-                                            Tax : 678
+                                            Tax(40%) :&#x20B9; {0.4*state?.quantity*state?.price}
                                         </td></tr>
                                         <tr><td id='billing'>
-                                            Grand Total : 678
+                                            Grand Total :&#x20B9;{0.4*state?.quantity*state?.price+state?.quantity*state?.price}
                                         </td></tr>
-
-
                                     </tbody>
                                 </table>
-                                <button className='btn btn-success form-control checkout-button' onClick={handlePayment} >$Pay now 678</button>
+                                <button className='btn btn-success form-control checkout-button' onClick={handlePayment} >Pay now &#x20B9; {0.4*state?.quantity*state?.price+state?.quantity*state?.price}</button>
 
                             </div>
 

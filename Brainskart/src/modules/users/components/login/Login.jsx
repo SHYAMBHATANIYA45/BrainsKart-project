@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import "./login.css";
 import Navbar from "../../../layout/components/navbar/Navbar";
@@ -23,7 +23,7 @@ export default function Login(props) {
     const [shyam, setshyam] = useState(0)
 
     let navigate = useNavigate()
-    
+
 
 
 
@@ -84,16 +84,16 @@ export default function Login(props) {
     let checkLogging = () => {
 
         if (checkValidation.checkmail && checkValidation.checkPass) {
-            setshyam((prev) => 1
-            )
+
+
             navigate("/")
             alert("Loggin successfull")
-            props.send(1)  
+            props.send(1)
         }
 
     }
 
-           
+
     //  console.log(shyam)     
 
     return (
@@ -103,7 +103,7 @@ export default function Login(props) {
 
 
 
-     <div className="loginNav">
+            <div className="loginNav">
                 <h3> <i className="fa-solid fa-right-to-bracket icon mt-3 ms-3"></i>Login</h3>
             </div>
 
@@ -150,26 +150,37 @@ export default function Login(props) {
                                             <div className={`form-text ${passFeedback === "password created successfully" ? "text-success" : "text-danger"}`}>{passFeedback}</div>
                                         </div>
 
-                                        <div className="form-group mt-4">
-                                            <Link to={"/"}></Link> <input type="submit" id="button" className="btn btn-mdtext-light" value="Login" onClick={checkLogging} />
-                                        </div>
+                                       
+
+
+
+                                        <div>
+                                            <div className='form-group mt-4 mb-3 text-center'>
+                                                <input type="submit" id="button" className="btn btn-mdtext-light" value="Login" onClick={checkLogging} />
+
+                                            </div>
+                                            <Link to={"/RegisterPage"} className="text-decoration-none text-dark "> <p className="text-dark fs-6 fw-semibold text-center">If Not register Click to <span className='text-primary'>Register Account </span></p></Link></div>
+
+
+
                                     </form>
                                 </div>
                                 <div className="card-footer login-footer text-center bg-dark">
                                     <Link to="/">
                                         <img src="./src/assets/logocopy.png" className="m-2 login-img"></img>
                                     </Link>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-           
 
 
-           
+
+
         </>
-        
+
     );
 }

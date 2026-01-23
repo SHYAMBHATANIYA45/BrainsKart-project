@@ -84,31 +84,39 @@ Womens: [  // Accessible as productData.kids in Kids component
 
   kids: [  
     {
+      id:1,
         msg: "kids t-shirt",
       image: "./src/assets/kids2.jpg",
-      rate: " 980",
+      price: " 980",
     
     },
     {
+      id:2,
        msg: "kids t-shirt",
       image: "./src/assets/kids.png",
-      rate: " 980",
+      price: " 980",
     
     }
     ,{
+      id:3,
         msg: "kids t-shirt",
       image: "./src/assets/kids2.jpg",
       rate: " 980",
     
     },
     {
-      
+      id:4,
       msg: "kids t-shirt",
       image: "./src/assets/kids.png",
       rate: " 980",
     
     }
-  ]
+  ],
+  Cart:[{
+    image :"./src/assets/kids2.jpg",
+    name:"shirt t-shirt",
+    price :300,
+  }]
 };
 
 export default product;

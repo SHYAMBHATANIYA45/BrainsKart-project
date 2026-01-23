@@ -24,7 +24,7 @@ export default function All_orders() {
                                     <th scope="col">Order Date</th>
                                 </tr>
                             </thead>
-                            <tbody className="success">
+                            <tbody className="text-center orderList-body">
                                 {product.Products.map((item, index) => {
                                     return (
                                         <React.Fragment key={index}>

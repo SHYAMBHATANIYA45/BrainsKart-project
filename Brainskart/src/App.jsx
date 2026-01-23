@@ -19,6 +19,7 @@ import All_orders from "./modules/orders/components/order-list/All_orders.jsx";
 import CheckOut from "./modules/orders/components/checkout/CheckOut.jsx";
 import Profile from "./modules/users/components/profile/Profile.jsx";
 import CreditCard from "./modules/orders/components/CreditCard.jsx/CreditCard.jsx";
+import Products from "./modules/product/components/product-details/Products.jsx";
 
 
 function App(props) {
@@ -26,11 +27,15 @@ function App(props) {
   let handleValue =(value)=>{
  setCount(value)
   }
+
+ let handlerouting=(event)=>{
+event.preventDefault()
+  }
  
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter onClick={handlerouting}>
         <UserContext.Provider value={{ count, setCount }}>
       <Navbar />
     
@@ -42,11 +47,11 @@ function App(props) {
           <Route path="/" element={<Home/>}></Route>
           {/* <Route path="/Home" element={<Home/>}></Route> */}
           
-          <Route path="/mensWear" element={<Mens/>}></Route>
+          <Route path="/MensWear" element={<Mens/>}></Route>
           <Route path="/kidsWear" element={<Kids/>}></Route>
           <Route path="/womensWear" element={<Womens />}></Route>
           <Route path = "/Cart" element={<Cart/>}/> 
-          {/* <Route path='/product' to ></Route>  sir se puchna*/}
+          <Route path="/product/:id" element={<Products/>}></Route>
           <Route path="/LoginPage" element={<Login send={handleValue}/>}></Route>
           <Route path="/RegisterPage" element={<Register/>}></Route>
           

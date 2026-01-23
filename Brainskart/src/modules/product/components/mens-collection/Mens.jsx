@@ -1,20 +1,29 @@
 import React from "react";
 import product from "../product";
 import './mens.css';
+import { Link, useNavigate } from "react-router";
 
 export default function Mens() {
+    let navigate = useNavigate()
+let handlemens =(event,item)=>{
+   event.preventDefault()
+   navigate('/product')
+   
+}
+
+
   return (
     <>
       <div className="mens-navbar">
         <h3 className="px-4 pt-2">Mens Collection</h3>
       </div>
-      <div className="container mt-5">
+      <div className="container mt-1">
         <div className="row mt-5">
           {product.Products && product.Products.length > 0 ? (
             product.Products.map((item) => (
               <div className="col-md-3" key={item.id}>
-                <div className="card mt-5 mb-2">
-                  <div className="card-header bg-white">
+                <div className="card mt-1 mb-2">
+                  <div className="card-header bg-white"  onClick={(e)=>handlemens(e,item)}>
                     <img
                       src={item.image}
                       width="220"

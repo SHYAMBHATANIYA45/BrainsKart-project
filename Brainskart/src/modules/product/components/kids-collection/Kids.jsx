@@ -1,8 +1,18 @@
 import React from "react";
 import product from "../product";
 import './kids.css'
+import { useNavigate } from "react-router";
 export default function Kids() {
+
+  let navigate = useNavigate()
+
+  let handleKids=(event,product)=>{
+    event.preventDefault();
+  navigate(`/product/${product.id}`)
+  }
+  
   return (
+    
     
    <>
       <div className="womens-navbar">
@@ -13,8 +23,8 @@ export default function Kids() {
           {product.kids && product.kids.length > 0 ? (
             product.kids.map((item,index) => (
               <div className="col-md-3"> 
-                <div className="card mt-5 mb-2"key={index}>
-                  <div className="card-header bg-white" >
+                <div className="card mt-5 mb-2"key={index} >
+                  <div className="card-header bg-white" onClick={(e)=>handleKids(e,item)}>
                     <img
                       src={item.image}
                       width="230"

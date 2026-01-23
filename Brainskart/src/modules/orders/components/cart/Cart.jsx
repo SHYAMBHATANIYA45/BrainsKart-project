@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import "./cart.css"
 import { useNavigate } from 'react-router'
+import product from '../../../product/components/product'
+
 export default function Cart() {
     const [qty, setQty] = useState({
-        qty: 0
+        quantity: 0
+       
     })
 
     let navigate = useNavigate()
     let increment = (event) => {
         setQty((prev) => ({
-            qty: prev.qty + 1
+            quantity: prev.quantity + 1,
+            
         })
 
 
@@ -20,27 +24,35 @@ export default function Cart() {
 
     let decrement = () => {
         setQty(prev => ({
-            qty: prev.qty <= 0 ? 0 : prev.qty - 1
+            quantity: prev.quantity <= 0 ? 0 : prev.quantity - 1
         }));
     };
 
 
-    let checkout = () => {
-        navigate("/Checkout")
-    }
-    return (<>
+    let checkout = (e,item) => {
+    navigate("/Checkout", { state: {
+         quantity: qty.quantity,
+         price: item.price
+     } });
+}
+    return (
+    <>
         <div className="CheckOut-list">
             <h3 className="px-4 pt-2"> <i className="fa-solid fa-cart-shopping"></i>All orders </h3>
         </div>
         <div className='container'>
             <div className="row">
-                <div className="col-8 mt-5">
+                 { product.Cart.map((item,index)=>{
+                                return(
+                                    <>
+                <div className="col-8 mt-5" key={index}>
                     <div className="card">
                         <div className="card-header cart-Items">
                             <h3 className=''>Your Cart Items</h3>
                         </div>
                         <div className="card-body">
-                            <table className='table border text-center cart-table'>
+                           
+                                      <table className='table border text-center cart-table'>
                                 <thead>
                                     <tr>
                                         <th>Image</th>
@@ -52,17 +64,18 @@ export default function Cart() {
                                 </thead>
                                 <tbody className='border-top mt-3'>
                                     <tr>
-                                        <td >
-                                            url
+                                        <td>
+                                           <img src={item.image} alt="kids" width={60} height={70} />
                                         </td>
                                         <td>
-                                            mens
+                                      {item.name}
                                         </td>
-                                        <td><i className="fa-solid fa-plus" onClick={increment}></i>{qty.qty}
+                                        <td>
+                                            <i className="fa-solid fa-plus" onClick={increment}></i>{qty.quantity}
                                             <i className="fa-solid fa-minus" onClick={decrement}></i>
                                         </td>
                                         <td>
-                                            34
+                                          {item.price*qty.quantity}
                                         </td>
 
                                         <td>
@@ -71,7 +84,7 @@ export default function Cart() {
 
                                     </tr>
                                 </tbody>
-                            </table>
+                                </table>
                         </div>
 
                     </div>
@@ -91,17 +104,17 @@ export default function Cart() {
 
                                     <tr>
 
-                                        <td>Total:</td>
+                                        <td>Total: {qty.quantity*item.price}</td>
 
                                     </tr>
                                     <tr>
 
-                                        <td>Tax:</td>
+                                        <td>Tax(40%): {0.4*qty.quantity*item.price} </td>
 
                                     </tr>
                                     <tr>
 
-                                        <td>Grand Total:</td>
+                                        <td>Grand Total: {0.4*qty.quantity*item.price+qty.quantity*item.price} </td>
 
                                     </tr>
                                 </tbody>
@@ -109,7 +122,7 @@ export default function Cart() {
 
                             </table>
                             <div className="row">
-                                <div className="col-5"><button className='btn btn-mm btn-success ms-2' onClick={checkout}>Checkout</button></div>
+                                <div className="col-5"><button className='btn btn-mm btn-success ms-2' onClick={(e)=>checkout(e,item)}>Checkout</button></div>
                                 <div className="col"><button className='btn btn-mm btn-info ms-2'>Shop More</button></div>
                             </div>
                         </div>
@@ -119,6 +132,8 @@ export default function Cart() {
 
 
                 </div>
+                </>
+                   )})}
             </div>
         </div>
     </>

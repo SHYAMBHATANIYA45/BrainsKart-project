@@ -44,7 +44,7 @@ let handleLogout =(event)=>{
             <Link to="/KidsWear" className="text-light m-2 text-decoration-none">Kid's wear</Link>
             <Link to="/WomensWear"   className="text-light m-2 text-decoration-none">Womens's wear</Link>
              <Link to="/Upload" className="text-light m-2 text-decoration-none">Upload</Link>
-            <Link to="/Cart" className="text-light m-2"><i className="fa-solid fa-cart-shopping"></i></Link>
+            <Link to="/Cart" className="text-light m-2 border-light text-decoration-none"><i className="fa-solid fa-cart-shopping"></i>{count}</Link>
             <Link to="/All_orders" className="text-light m-2 text-decoration-none">Orders</Link>
            
           </div>

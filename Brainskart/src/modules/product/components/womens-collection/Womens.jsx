@@ -1,8 +1,26 @@
 import React from "react";
 import product from "../product";
 import './womens.css';
+import { useNavigate } from "react-router";
 
 export default function Womens() {
+
+
+
+
+
+  let naavigate = useNavigate()
+
+  let handleAddCart=(event)=>
+  {
+    event.preventDefault();
+    
+  }
+
+  let handleWomen=(event)=>{
+     event.preventDefault()
+     naavigate("/product")
+  }
   return (
     <>
       <div className="womens-navbar">
@@ -11,10 +29,10 @@ export default function Womens() {
       <div className="container mt-3">
         <div className="row mt-3">
           {product.Womens && product.Womens.length > 0 ? (
-            product.Womens.map((item) => (
-              <div className="col-md-3" key={item.id}>
-                <div className="card mt-5 mb-2">
-                  <div className="card-header bg-white">
+            product.Womens.map((item,index) => (
+              <div className="col-md-3" key={index}>
+                <div className="card mt-5 mb-2 ">
+                  <div className="card-header bg-white"  onClick={handleWomen}>
                     <img
                       src={item.image}
                       width="230"
@@ -29,7 +47,7 @@ export default function Womens() {
                         Price: &#8377;{item.price}
                       </li>
                       <li className="list-group-item text-center">
-                        <button className="mens-button">Add to Cart</button>
+                        <button className="mens-button" onClick={handleAddCart}>Add to Cart</button>
                       </li>
                     </ul>
                   </div>
