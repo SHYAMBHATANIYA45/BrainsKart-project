@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { UserContext } from "./modules/Usercontext.js";
+
 import "./App.css";
 
 import Home from "./modules/layout/components/home/Home";
@@ -20,27 +20,28 @@ import CheckOut from "./modules/orders/components/checkout/CheckOut.jsx";
 import Profile from "./modules/users/components/profile/Profile.jsx";
 import CreditCard from "./modules/orders/components/CreditCard.jsx/CreditCard.jsx";
 import Products from "./modules/product/components/product-details/Products.jsx";
+import { GlobalContext } from "./modules/GlobalContext.js";
 
 
 function App(props) {
-  const [count, setCount] = useState(0);
-  let handleValue =(value)=>{
- setCount(value)
-  }
+  const [loginCount, setLoginCount] = useState(0);
+  const[addCart,setAddCart] =useState(0);
 
- let handlerouting=(event)=>{
-event.preventDefault()
-  }
  
 
   return (
     <>
-      <BrowserRouter onClick={handlerouting}>
-        <UserContext.Provider value={{ count, setCount }}>
+      <BrowserRouter>
+      <GlobalContext.Provider value={{
+        loginCount,
+        setLoginCount,
+        addCart,
+        setAddCart
+      }}>
+       
       <Navbar />
     
-    </UserContext.Provider>
-   
+    
       
         <Routes>
           
@@ -51,8 +52,8 @@ event.preventDefault()
           <Route path="/kidsWear" element={<Kids/>}></Route>
           <Route path="/womensWear" element={<Womens />}></Route>
           <Route path = "/Cart" element={<Cart/>}/> 
-          <Route path="/product/:id" element={<Products/>}></Route>
-          <Route path="/LoginPage" element={<Login send={handleValue}/>}></Route>
+          <Route path="/product/:category/:id" element={<Products/>}></Route>
+          <Route path="/LoginPage" element={<Login/>}></Route>
           <Route path="/RegisterPage" element={<Register/>}></Route>
           
           <Route path="/Upload" element={<Upload/>}></Route>
@@ -62,6 +63,7 @@ event.preventDefault()
           <Route path="/User_Profile" element={<Profile/>}></Route>
           <Route path="/CreditCard_details" element={<CreditCard/>}></Route>
         </Routes>
+        </GlobalContext.Provider>
       </BrowserRouter>
     </>
   );

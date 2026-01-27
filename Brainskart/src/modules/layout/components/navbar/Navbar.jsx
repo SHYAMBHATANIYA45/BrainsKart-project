@@ -1,24 +1,32 @@
 import React, { useContext } from "react";
 import "./navbar.css"
-import { Link} from "react-router";
-import { UserContext } from "../../../Usercontext";
+import { Link, useLocation} from "react-router";
 // import Login from "../../../users/components/login/Login";
 import "./Logged.css"
+import { GlobalContext } from "../../../GlobalContext";
 
 
 export default function Navbar() {
-const {count} = useContext(UserContext)
-console.log(count);
+
+
+const{loginCount,setLoginCount} = useContext(GlobalContext)
+const{addCart} =useContext(GlobalContext)
+
+
 let handleLogout =(event)=>{
   event.preventdefault()
-   count = 0;
+   setLoginCount(0);
 }
+
+
+console.log(loginCount)
+
   return (
 
    
     <>
 
-    {count==0?(
+    {loginCount==0?(
       <div className="container-fluid navbar-container">
         <div className="row">
           <div className="col">
@@ -44,7 +52,7 @@ let handleLogout =(event)=>{
             <Link to="/KidsWear" className="text-light m-2 text-decoration-none">Kid's wear</Link>
             <Link to="/WomensWear"   className="text-light m-2 text-decoration-none">Womens's wear</Link>
              <Link to="/Upload" className="text-light m-2 text-decoration-none">Upload</Link>
-            <Link to="/Cart" className="text-light m-2 border-light text-decoration-none"><i className="fa-solid fa-cart-shopping"></i>{count}</Link>
+            <Link to="/Cart" className="text-light m-2 border-light text-decoration-none"><i className="fa-solid fa-cart-shopping"></i>{addCart}</Link>
             <Link to="/All_orders" className="text-light m-2 text-decoration-none">Orders</Link>
            
           </div>

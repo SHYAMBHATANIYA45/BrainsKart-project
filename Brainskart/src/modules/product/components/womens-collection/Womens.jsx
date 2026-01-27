@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import product from "../product";
 import './womens.css';
 import { useNavigate } from "react-router";
+import { GlobalContext } from "../../../GlobalContext";
 
 export default function Womens() {
 
 
-
+const{setAddCart,loginCount} = useContext(GlobalContext)
 
 
   let naavigate = useNavigate()
 
   let handleAddCart=(event)=>
   {
-    event.preventDefault();
+   
+    setAddCart(prev=>prev+1)
     
   }
 
-  let handleWomen=(event)=>{
+  let handleWomen=(event,product)=>{
      event.preventDefault()
-     naavigate("/product")
+      if(loginCount==1){
+     naavigate(`/product/Womens/${product.id}`)}
   }
   return (
     <>
@@ -32,11 +35,11 @@ export default function Womens() {
             product.Womens.map((item,index) => (
               <div className="col-md-3" key={index}>
                 <div className="card mt-5 mb-2 ">
-                  <div className="card-header bg-white"  onClick={handleWomen}>
+                  <div className="card-header bg-white text-center"  onClick={(e)=>handleWomen(e,item)}>
                     <img
                       src={item.image}
-                      width="230"
-                      height="350"
+                      width={"230"}
+                      height={"350"}
                       alt={item.msg}
                     />
                   </div>

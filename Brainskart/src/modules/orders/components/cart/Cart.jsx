@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./cart.css"
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import product from '../../../product/components/product'
 
 export default function Cart() {
@@ -8,16 +8,14 @@ export default function Cart() {
         quantity: 0
        
     })
+   
 
     let navigate = useNavigate()
     let increment = (event) => {
         setQty((prev) => ({
             quantity: prev.quantity + 1,
             
-        })
-
-
-
+        })  
         )
     }
 
@@ -45,7 +43,7 @@ export default function Cart() {
                  { product.Cart.map((item,index)=>{
                                 return(
                                     <>
-                <div className="col-8 mt-5" key={index}>
+                <div className="col mt-5" key={index}>
                     <div className="card">
                         <div className="card-header cart-Items">
                             <h3 className=''>Your Cart Items</h3>
@@ -122,8 +120,8 @@ export default function Cart() {
 
                             </table>
                             <div className="row">
-                                <div className="col-5"><button className='btn btn-mm btn-success ms-2' onClick={(e)=>checkout(e,item)}>Checkout</button></div>
-                                <div className="col"><button className='btn btn-mm btn-info ms-2'>Shop More</button></div>
+                                <div className="col-5 "><button className='btn btn-sm btn-success ms-2' onClick={(e)=>checkout(e,item)}>Checkout</button></div>
+                                <div className="col"><button className='btn btn-sm btn-info ms-2'>Shop More</button></div>
                             </div>
                         </div>
 

@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import product from "../product";
 import './mens.css';
 import { Link, useNavigate } from "react-router";
+import { GlobalContext } from "../../../GlobalContext";
 
 export default function Mens() {
-    let navigate = useNavigate()
-let handlemens =(event,item)=>{
+
+  const{setAddCart,loginCount} = useContext(GlobalContext)
+
+let navigate = useNavigate()
+let handlemens =(event,product)=>{
    event.preventDefault()
-   navigate('/product')
-   
+   if(loginCount){
+   navigate(`/product/Products/${product.id}`)   
+}}
+let handleCart =()=>{
+setAddCart(prev=>prev+1)
+
 }
+
 
 
   return (
@@ -23,11 +32,11 @@ let handlemens =(event,item)=>{
             product.Products.map((item) => (
               <div className="col-md-3" key={item.id}>
                 <div className="card mt-1 mb-2">
-                  <div className="card-header bg-white"  onClick={(e)=>handlemens(e,item)}>
+                  <div className="card-header bg-white text-center"  onClick={(e)=>handlemens(e,item)}>
                     <img
                       src={item.image}
-                      width="220"
-                      height="300"
+                      width={"230px"}
+                      height="350"
                       alt={item.msg}
                     />
                   </div>
@@ -38,7 +47,7 @@ let handlemens =(event,item)=>{
                         Price: &#8377;{item.rate}
                       </li>
                       <li className="list-group-item text-center">
-                        <button className="mens-button">Add to Cart</button>
+                        <button className="mens-button" onClick={handleCart}>Add to Cart</button>
                       </li>
                     </ul>
                   </div>

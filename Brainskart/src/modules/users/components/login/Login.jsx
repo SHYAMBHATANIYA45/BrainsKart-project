@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import "./login.css";
 import Navbar from "../../../layout/components/navbar/Navbar";
+import { GlobalContext } from "../../../GlobalContext";
 // import { UserContext } from "../../../Usercontext";
 
 // import LoginNav from "./loginNav";
@@ -20,7 +21,8 @@ export default function Login(props) {
         checkPass: false,
     })
 
-    const [shyam, setshyam] = useState(0)
+   
+     const {setLoginCount} =useContext(GlobalContext)
 
     let navigate = useNavigate()
 
@@ -88,7 +90,8 @@ export default function Login(props) {
 
             navigate("/")
             alert("Loggin successfull")
-            props.send(1)
+            setLoginCount(1);
+           
         }
 
     }
@@ -115,7 +118,7 @@ export default function Login(props) {
                 <div className="row">
 
                     <div className="col-2"></div>
-                    <div className="col-9 mt-2">
+                    <div className="col mt-2">
                         <div className="form mx-5">
                             <div className="card w-75  m-5 card-login">
                                 <div className="card-header login-header bg-dark ">
@@ -173,9 +176,10 @@ export default function Login(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  <div className="col-1"></div>
                 </div>
             </div>
+          
 
 
 

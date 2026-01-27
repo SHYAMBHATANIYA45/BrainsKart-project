@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import product from "../product";
 import './kids.css'
 import { useNavigate } from "react-router";
+import { GlobalContext } from "../../../GlobalContext";
 export default function Kids() {
 
   let navigate = useNavigate()
+  const{setAddCart,loginCount} = useContext(GlobalContext)
 
   let handleKids=(event,product)=>{
     event.preventDefault();
-  navigate(`/product/${product.id}`)
+    if(loginCount){
+  navigate(`/product/kids/${product.id}`)
   }
-  
+  }
+  let handleAddCart =()=>{
+    setAddCart(prev=>prev+1)
+  }
   return (
     
     
@@ -24,10 +30,10 @@ export default function Kids() {
             product.kids.map((item,index) => (
               <div className="col-md-3"> 
                 <div className="card mt-5 mb-2"key={index} >
-                  <div className="card-header bg-white" onClick={(e)=>handleKids(e,item)}>
+                  <div className="card-header bg-white text-center" onClick={(e)=>handleKids(e,item)}>
                     <img
                       src={item.image}
-                      width="230"
+                      width={"230"}
                       height="350"
                       alt={item.msg}
                     />
@@ -39,7 +45,7 @@ export default function Kids() {
                         Price: &#8377;{item.price}
                       </li>
                       <li className="list-group-item text-center">
-                        <button className="mens-button">Add to Cart</button>
+                        <button className="mens-button" onClick={handleAddCart}>Add to Cart</button>
                       </li>
                     </ul>
                   </div>

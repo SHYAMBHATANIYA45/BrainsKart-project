@@ -9,7 +9,7 @@ function Home() {
     <div className="home position-absolute">
         <img src="./src/assets/shopping.jpg" alt="" 
         style={{
-            height:"570px",
+            height:"755px",
             width:"100%",
             position:"absolute",
            

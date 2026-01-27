@@ -13,7 +13,7 @@ export default function Profile() {
                     <div className="col-4">
                       <img src=".\src\assets\image5.png" width={200} height={200} className='rounded-circle m-5'/>
                     </div>
-                    <div className="col-7">
+                    <div className="col">
 
                         <div className="card mt-3">
                             <div className="card-header profile-header"><h3>Your Information</h3></div>

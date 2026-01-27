@@ -131,13 +131,13 @@ export default function Register() {
       </div>
       <div className='container'>
         <div className='row mt-4'>
-          <div className='col-3'></div>
-          <div className='col-6 '>
+          <div className='col-2'></div>
+          <div className='col '>
             <form onSubmit={handleSubmit}>
               <div className='card'>
 
                 < div className='card-header register-header'>
-                  <h3 className='mt-2'>Registeration</h3>
+                  <h3 className='mt-2'>Register</h3>
                 </div>
 
                 <div className='card-body register-body'>
@@ -214,12 +214,13 @@ export default function Register() {
                   </div>
                   <div className='card-footer register-footer bg-dark text-center'>
                     <Link to="/">
-                      <img src="./src/assets/logocopy.png" className="m-2 register-img"></img>
+                      <img src="./src/assets/logocopy.png" className="mt-2 register-img"></img>
                     </Link>
                   </div>
                 </div>
             </form>
           </div>
+          <div className="col-2"></div>
 
         </div>
       </div>
